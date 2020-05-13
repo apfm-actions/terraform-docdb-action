@@ -1,0 +1,83 @@
+name: DocumentDB Deploy
+description: Deploy an AWS DocumentDB using Terraform
+inputs:
+  workspace:
+    description: 'Terraform Workspace'
+    required: true
+
+  project:
+    description: 'Project this Service is part of'
+    required: true
+
+  owner:
+    description: 'Project owner/team'
+    required: true
+
+  email:
+    description: 'Project email address'
+    required: true
+
+  destroy:
+    description: 'Runs Terraform destroy to remove resources created by this action'
+    required: false
+    default: false
+
+  cluster_name:
+    description: 'DocumentDB cluster name'
+    required: true
+
+  credstash_docdb_password:
+    description: 'Credstash secret name/key. Used to retrieve the stored password for the DocumentDB cluster'
+    required: true
+
+  parameter_group:
+    description: 'A cluster parameter group to associate with the cluster'
+    required: false
+# may require default
+
+  security_group_ids:
+    description: 'A comma separated list of security group IDs associated with the cluster'
+    required: false
+
+  cloudwatch_log_types:
+    description: 'A comma spearated list of log types to export to cloudwatch. The following log types are supported: audit, profiler'
+    required: false
+
+  backup_window:
+    description: 'The daily time range during which automated backups are created in UTC. e.g. 04:00-09:00'
+    required: false
+    default: '07:00-11:00'
+
+  backup_retention:
+    description: 'The days to retain backups for'
+    required: false
+    default: 1
+
+  instance_count:
+    description: 'Number of instances to create and join to the cluster'
+    required: false
+    default: 1
+
+  instance_class:
+    description: 'The instance class to use. Supported instance classes: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs'
+    required: false
+    default: db.r5.large
+
+  #inputname matching terraform-project-base-action output
+  subnet_id_private:
+    description: 'A comma separated list of subnet IDs'
+    required: false
+
+outputs:
+  documentdb_name:
+    description: 'Name of the created documentdb cluster'
+  documentdb_arn:
+    description: 'ARN of the created documentdb cluster'
+  documentdb_endpoint:
+    description: 'The DNS address of the DocDB instance'
+  documentdb_reader_endpoint:
+    description: 'A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas'
+  
+runs:
+  using: docker
+  image: Dockerfile
