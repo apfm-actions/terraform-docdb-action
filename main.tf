@@ -1,3 +1,7 @@
+provider "credstash" {
+  
+}
+
 data "credstash_secret" "password" {
   name = "${var.credstash_docdb_password}"
 }
