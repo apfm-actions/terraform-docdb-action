@@ -1,11 +1,11 @@
-provider "credstash" {
-  table  = "credential-store"
-  region = "us-west-2"
-}
+# provider "credstash" {
+#   table  = "credential-store"
+#   region = "us-west-2"
+# }
 
-data "credstash_secret" "password" {
-  name = "${var.credstash_docdb_password}"
-}
+# data "credstash_secret" "password" {
+#   name = "${var.credstash_docdb_password}"
+# }
 
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier              = "${var.cluster_name}"
@@ -16,7 +16,7 @@ resource "aws_docdb_cluster" "docdb" {
   enabled_cloudwatch_logs_exports = "${split(",", var.cloudwatch_log_types)}"
   
   master_username = "${var.cluster_identifier}-admin"
-  master_password = "${data.credstash_secret.password.value}"
+  master_password = "supersecurepassword###123"  #"${data.credstash_secret.password.value}"
 
   preferred_backup_window = "${var.backup_window}"
   backup_retention_period = "${var.backup_retention}" 
