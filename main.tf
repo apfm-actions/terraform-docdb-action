@@ -10,7 +10,7 @@
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier              = var.cluster_name
   engine                          = "docdb"
-  db_subnet_group_name            = "${aws_docdb_subnet_group.subnet_group.id}"
+  db_subnet_group_name            = aws_docdb_subnet_group.subnet_group.id
   db_cluster_parameter_group_name = var.parameter_group
   vpc_security_group_ids          = "${split(",", var.security_group_ids)}"
   #enabled_cloudwatch_logs_exports = "${split(",", var.cloudwatch_log_types)}"
@@ -20,6 +20,7 @@ resource "aws_docdb_cluster" "docdb" {
 
   preferred_backup_window = var.backup_window
   backup_retention_period = var.backup_retention
+  skip_final_snapshot     = true
 
   # tags = {
   #   project = var.project
