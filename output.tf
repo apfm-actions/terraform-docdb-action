@@ -20,5 +20,5 @@ output "documentdb_reader_endpoint" {
 
 output "documentdb_master_username" {
   description = "Username of the master account configured for the DocDB cluster"
-  value = "${var.cluster_identifier}-admin"
+  value = "${var.cluster_name}-admin"
 }
