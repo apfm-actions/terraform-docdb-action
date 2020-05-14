@@ -23,10 +23,6 @@ inputs:
     description: 'A comma separated list of security group IDs associated with the cluster'
     required: false
 
-  cloudwatch_log_types:
-    description: 'A comma spearated list of log types to export to cloudwatch. The following log types are supported: audit, profiler'
-    required: false
-
   backup_window:
     description: 'The daily time range during which automated backups are created in UTC. e.g. 04:00-09:00'
     required: false
