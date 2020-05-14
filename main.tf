@@ -15,7 +15,7 @@ resource "aws_docdb_cluster" "docdb" {
   vpc_security_group_ids          = split(",", var.security_group_ids)
   enabled_cloudwatch_logs_exports = "" #"${split(",", var.cloudwatch_log_types)}"
   
-  master_username = "replace(var.cluster_name,"-","_")_admin"
+  master_username = "${replace(var.cluster_name,"-","_")}_admin"
   master_password = "supersecurepassword###123"  #"${data.credstash_secret.password.value}"
 
   preferred_backup_window = var.backup_window
