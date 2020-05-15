@@ -6,9 +6,9 @@ Deploy an AWS DocumentDB using Terraform.
 Prerequisites
 -----
 
-- Configure AWS Credential action must be executed before this action
+- Configure AWS Credential action must be executed before this action  
 https://github.com/aws-actions/configure-aws-credentials 
-- Terraform Project Action must be executed before this action
+- Terraform Project Action must be executed before this action  
 https://github.com/aplaceformom/terraform-project-base-action
 - DocumentDB master password must be stored in the enviornment's Credstash's default credential store.
 - If this is the first terraform deploy action used in the workflow, the 'aws_assume_role' and 'aws_assume_role' inputs must be defined.
@@ -95,6 +95,13 @@ Runs Terraform destroy to remove resources created by this action'
 - A comma separated list of subnet IDs
 - required: true
 
+### aws_assume_role
+- ARN of the assumable role to execute Terraform against the environment. (Required if this is the first terraform deploy action used in the workflow)
+- required: false
+
+### aws_external_id
+- AWS external ID required to grant access to role. (Required if this is the first terraform deploy action used in the workflow)
+- required: false
 
 Outputs
 -------
