@@ -1,7 +1,7 @@
-# provider "credstash" {
-#   table  = "credential-store"
-#   region = "us-west-2"
-# }
+provider "credstash" {
+  table  = "credential-store"
+  region = "us-west-2"
+}
 
 # data "credstash_secret" "password" {
 #   name = "${var.credstash_docdb_password}"
