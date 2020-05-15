@@ -46,10 +46,14 @@ inputs:
     required: false
     default: db.r5.large
 
-  #inputname matching terraform-project-base-action output
   subnet_id_private:
     description: 'A comma separated list of subnet IDs'
     required: false
+
+  apply_immediately:
+    description: 'Specifies whether any cluster modifications are applied immediately, or during the next maintenance window'
+    required: false
+    default: false
 
 outputs:
   documentdb_name:

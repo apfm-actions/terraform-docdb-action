@@ -13,6 +13,7 @@ resource "aws_docdb_cluster" "docdb" {
   db_subnet_group_name            = aws_docdb_subnet_group.subnet_group.id
   db_cluster_parameter_group_name = var.parameter_group
   vpc_security_group_ids          = split(",", var.security_group_ids)
+  apply_immediately               = var.apply_immediately
 
   master_username = var.username
   master_password = "supersecurepassword###123"  #"${data.credstash_secret.password.value}"
