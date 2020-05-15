@@ -44,7 +44,7 @@ resource "aws_docdb_cluster_instance" "instance" {
 
 resource "aws_docdb_subnet_group" "subnet_group" {
   name_prefix = var.cluster_name
-  subnet_ids  = split(",", var.subnet_id_private)
+  subnet_ids  = split(",", var.subnet_ids)
 
   tags = {
     project = var.project_name
