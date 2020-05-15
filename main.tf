@@ -1,11 +1,10 @@
-# provider "credstash" {
-#   profile = "terraform@apfm-${terraform.workspace}"
-#   region = "us-west-2"
-# }
+provider "credstash" {
+    profile = "credstash"
+}
 
-# data "credstash_secret" "password" {
-#   name = "${var.credstash_docdb_password}"
-# }
+data "credstash_secret" "password" {
+  name = "${var.credstash_docdb_password}"
+}
 
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier              = var.cluster_name
@@ -16,7 +15,7 @@ resource "aws_docdb_cluster" "docdb" {
   apply_immediately               = var.apply_immediately
 
   master_username = var.username
-  master_password = "supersecurepassword###123"  #"${data.credstash_secret.password.value}"
+  master_password = "${data.credstash_secret.password.value}" #"supersecurepassword###123"
 
   preferred_backup_window = var.backup_window
   backup_retention_period = var.backup_retention

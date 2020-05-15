@@ -51,7 +51,7 @@ inputs:
     required: false
 
   apply_immediately:
-    description: 'Specifies whether any cluster modifications are applied immediately, or during the next maintenance window'
+    description: 'Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. APPLY IMMEDIATELY WILL CAUSE OUTAGE'
     required: false
     default: false
 
