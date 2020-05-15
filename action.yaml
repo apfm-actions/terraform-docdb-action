@@ -1,6 +1,11 @@
 name: DocumentDB Deploy
 description: Deploy an AWS DocumentDB using Terraform
 inputs:
+  aws_assume_role:
+    required: false
+  aws_external_id:
+    required: false
+
   destroy:
     description: 'Runs Terraform destroy to remove resources created by this action'
     required: false
