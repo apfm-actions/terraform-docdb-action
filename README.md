@@ -1,4 +1,4 @@
-Lambda Terraform Action
+DocumentDB Terraform Action
 ============================
 Deploy an AWS DocumentDB using Terraform.
 
