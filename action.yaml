@@ -10,6 +10,10 @@ inputs:
     description: 'DocumentDB cluster name'
     required: true
 
+  username:
+    description: 'Username for the DocumentDB access. Hyphens are not allowed.'
+    required: true
+
   credstash_docdb_password:
     description: 'Credstash secret name/key. Used to retrieve the stored password for the DocumentDB cluster'
     required: true
@@ -17,7 +21,6 @@ inputs:
   parameter_group:
     description: 'A cluster parameter group to associate with the cluster'
     required: false
-# may require default
 
   security_group_ids:
     description: 'A comma separated list of security group IDs associated with the cluster'

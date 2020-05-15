@@ -17,8 +17,3 @@ output "documentdb_reader_endpoint" {
   description = "A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas"
   value = "${aws_docdb_cluster.docdb.reader_endpoint}"
 }
-
-output "documentdb_master_username" {
-  description = "Username of the master account configured for the DocDB cluster"
-  value = "${var.cluster_name}-admin"
-}
