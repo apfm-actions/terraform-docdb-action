@@ -3,7 +3,7 @@ provider "credstash" {
 }
 
 data "credstash_secret" "password" {
-  name = "${var.credstash_docdb_password}"
+  name = var.credstash_docdb_password
 }
 
 resource "aws_docdb_cluster" "docdb" {
