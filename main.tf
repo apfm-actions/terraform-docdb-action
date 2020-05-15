@@ -16,7 +16,7 @@ resource "aws_docdb_cluster" "docdb" {
   apply_immediately               = var.apply_immediately
 
   master_username = var.username
-  master_password = data.credstash_secret.password.value #"supersecurepassword###123"
+  master_password = data.credstash_secret.password.value
 
   preferred_backup_window = var.backup_window
   backup_retention_period = var.backup_retention
