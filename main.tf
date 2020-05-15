@@ -9,7 +9,7 @@ data "credstash_secret" "password" {
 
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier              = var.cluster_name
-  port:                           = var.port
+  port                            = var.port
   engine                          = "docdb"
   db_subnet_group_name            = aws_docdb_subnet_group.subnet_group.id
   db_cluster_parameter_group_name = var.parameter_group
