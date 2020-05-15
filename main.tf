@@ -1,7 +1,7 @@
-provider "credstash" {
-  profile = "terraform@apfm-${terraform.workspace}"
-  region = "us-west-2"
-}
+# provider "credstash" {
+#   profile = "terraform@apfm-${terraform.workspace}"
+#   region = "us-west-2"
+# }
 
 # data "credstash_secret" "password" {
 #   name = "${var.credstash_docdb_password}"
@@ -21,11 +21,11 @@ resource "aws_docdb_cluster" "docdb" {
   backup_retention_period = var.backup_retention
   skip_final_snapshot     = true
 
-  # tags = {
-  #   project = var.project
-  #   owner   = var.owner
-  #   email   = var.email
-  # }
+  tags = {
+    project = var.project_name
+    owner   = var.project_owner
+    email   = var.project_email
+  }
 }
 
 resource "aws_docdb_cluster_instance" "instance" {
@@ -34,20 +34,20 @@ resource "aws_docdb_cluster_instance" "instance" {
   instance_class    = var.instance_class
   cluster_identifier = aws_docdb_cluster.docdb.id
 
-  # tags = {
-  #   project = "${var.project}"
-  #   owner   = "${var.owner}"
-  #   email   = "${var.email}"
-  # }
+  tags = {
+    project = var.project_name
+    owner   = var.project_owner
+    email   = var.project_email
+  }
 }
 
 resource "aws_docdb_subnet_group" "subnet_group" {
   name_prefix = var.cluster_name
   subnet_ids  = split(",", var.subnet_id_private)
 
-  # tags = {
-  #   project = "${var.project}"
-  #   owner   = "${var.owner}"
-  #   email   = "${var.email}"
-  # }
+  tags = {
+    project = var.project_name
+    owner   = var.project_owner
+    email   = var.project_email
+  }
 }
