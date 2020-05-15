@@ -1,5 +1,6 @@
 provider "credstash" {
     profile = "credstash"
+    region = var.region
 }
 
 data "credstash_secret" "password" {
