@@ -2,6 +2,18 @@ DocumentDB Terraform Action
 ============================
 Deploy an AWS DocumentDB using Terraform.
 
+
+Prerequisites
+-----
+
+- Configure AWS Credential action must be executed before this action
+https://github.com/aws-actions/configure-aws-credentials 
+- Terraform Project Action must be executed before this action
+https://github.com/aplaceformom/terraform-project-base-action
+- DocumentDB master password must be stored in the enviornment's Credstash's default credential store.
+- If this is the first terraform deploy action used in the workflow, the 'aws_assume_role' and 'aws_assume_role' inputs must be defined.
+
+
 Usage
 -----
 
@@ -82,6 +94,7 @@ Runs Terraform destroy to remove resources created by this action'
 ### subnet_ids
 - A comma separated list of subnet IDs
 - required: true
+
 
 Outputs
 -------
