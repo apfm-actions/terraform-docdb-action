@@ -6,15 +6,14 @@ Usage
 -----
 
 ```yaml
-  - name: Lambda Deploy
-    uses: aplaceformom/terraform-lambda-action@master
-    with:
-      workspace: dev
-      project: examples
-      owner: MyTeam
-      email: myteam@mydomain.org
-      public: true
-      debug: false
+  - name: 'DocumentDB Deploy'
+      uses: aplaceformom/terraform-docdb-action@master
+      with:
+        cluster_name: example
+        username: example_admin
+        credstash_docdb_password: example_credstash_key
+        subnet_ids: ${{ steps.project.outputs.subnet_id_private }}
+        instance_count: 2
 ```
 
 
