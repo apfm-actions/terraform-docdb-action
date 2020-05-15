@@ -32,9 +32,9 @@ resource "aws_docdb_cluster" "docdb" {
 }
 
 resource "aws_docdb_cluster_instance" "instance" {
-  count             = var.instance_count
-  identifier_prefix = aws_docdb_cluster.docdb.id
-  instance_class    = var.instance_class
+  count              = var.instance_count
+  identifier_prefix  = aws_docdb_cluster.docdb.id
+  instance_class     = var.instance_class
   cluster_identifier = aws_docdb_cluster.docdb.id
 
   tags = {
