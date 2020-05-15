@@ -1,5 +1,5 @@
 provider "credstash" {
-  table  = "credential-store"
+  profile = "terraform@apfm-${terraform.workspace}"
   region = "us-west-2"
 }
 
