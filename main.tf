@@ -25,9 +25,9 @@ resource "aws_docdb_cluster" "docdb" {
   skip_final_snapshot     = true
 
   tags = {
-    project = var.project_name
+    app     = var.project_name
     owner   = var.project_owner
-    email   = var.project_email
+    env     = terraform.workspace
   }
 }
 
