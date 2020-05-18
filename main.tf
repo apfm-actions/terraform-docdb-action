@@ -25,9 +25,9 @@ resource "aws_docdb_cluster" "docdb" {
   skip_final_snapshot     = true
 
   tags = {
-    app     = var.project_name
-    owner   = var.project_owner
-    env     = terraform.workspace
+    app   = var.project_name
+    owner = var.project_owner
+    env   = terraform.workspace
   }
 }
 
@@ -38,9 +38,9 @@ resource "aws_docdb_cluster_instance" "instance" {
   cluster_identifier = aws_docdb_cluster.docdb.id
 
   tags = {
-    project = var.project_name
-    owner   = var.project_owner
-    email   = var.project_email
+    app   = var.project_name
+    owner = var.project_owner
+    env   = terraform.workspace
   }
 }
 
@@ -49,8 +49,8 @@ resource "aws_docdb_subnet_group" "subnet_group" {
   subnet_ids  = split(",", var.subnet_ids)
 
   tags = {
-    project = var.project_name
-    owner   = var.project_owner
-    email   = var.project_email
+    app   = var.project_name
+    owner = var.project_owner
+    env   = terraform.workspace
   }
 }
