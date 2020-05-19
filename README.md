@@ -116,3 +116,4 @@ Outputs
 
 To Do
 -------
+- Add deploy/plan/destroy inputs to action.yaml
