@@ -28,7 +28,7 @@ resource "aws_docdb_cluster" "docdb" {
     app   = var.project_name
     owner = var.project_owner
     env   = terraform.workspace
-    repo  = var.GITHUB_REPOSITORY
+    repo  = var.github_repository
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_docdb_cluster_instance" "instance" {
     app   = var.project_name
     owner = var.project_owner
     env   = terraform.workspace
-    repo  = var.GITHUB_REPOSITORY
+    repo  = var.github_repository
   }
 }
 
@@ -54,6 +54,6 @@ resource "aws_docdb_subnet_group" "subnet_group" {
     app   = var.project_name
     owner = var.project_owner
     env   = terraform.workspace
-    repo  = var.GITHUB_REPOSITORY
+    repo  = var.github_repository
   }
 }
