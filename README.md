@@ -11,7 +11,6 @@ https://github.com/aws-actions/configure-aws-credentials
 - Terraform Project Action must be executed before this action  
 https://github.com/aplaceformom/terraform-project-base-action
 - DocumentDB master password must be stored in the enviornment's Credstash's default credential store.
-- If this is the first terraform deploy action used in the workflow, the 'aws_assume_role' and 'aws_assume_role' inputs must be defined.
 
 
 Usage
@@ -36,6 +35,16 @@ Inputs
 Runs Terraform destroy to remove resources created by this action'
 - required: false
 - default: false
+
+### deploy
+Runs Terraform apply to create/update resources created by this action
+- required: false
+- default: true
+
+### plan
+Runs Terraform plan to check the changes necessary to achieve the desired state
+- required: false
+- default: true
 
 ### cluster_name
 - DocumentDB cluster name
@@ -116,4 +125,4 @@ Outputs
 
 To Do
 -------
-- Add deploy/plan/destroy inputs to action.yaml
+- Add feature to generate password and push to credstash

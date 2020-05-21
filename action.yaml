@@ -1,17 +1,18 @@
 name: DocumentDB Deploy
 description: Deploy an AWS DocumentDB using Terraform
 inputs:
-  aws_assume_role:
-    description: 'ARN of the assumable role to execute Terraform against the environment'
-    required: false
-  aws_external_id:
-    description: 'AWS external ID required to grant access to role'
-    required: false
-
   destroy:
     description: 'Runs Terraform destroy to remove resources created by this action'
     required: false
     default: false
+  deploy:
+    description: 'Runs Terraform apply to create/update resources created by this action'
+    required: false
+    default: true
+  plan:
+    description: 'Runs Terraform plan to check the changes necessary to achieve the desired state'
+    required: false
+    default: true
 
   cluster_name:
     description: 'DocumentDB cluster name'
